@@ -1,0 +1,131 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Core */
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Utility classes */
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+.center {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.py-2 {
+    padding: 2rem 0;
+}
+
+/* section: game-board */
+#game-board {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-board .game-board-container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#game-board .game-board-container .cell {
+    border: 1px solid #000;
+    display: flex;
+    padding: 4rem;
+}
+
+/* circle and o css */
+.cell {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.cell.x::before,
+.cell.x::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 80px;
+    background-color: black;
+}
+
+.cell.x::after {
+    transform: rotate(-35deg);
+}
+
+.cell.circle::before,
+.cell.circle::after {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    background-color: black;
+}
+
+.cell.circle::before {
+    content: '';
+    width: 75px;
+    height: 80px;
+}
+
+.cell.circle::after {
+    content: '';
+    background: #ebebeb;
+    width: 50px;
+    height: 50px;
+}
+
+/* Section: Modal */
+#modal {
+    display: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    background: #999;
+    opacity: .9;
+    height: 100vh;
+    width: 100vw;
+}
+
+#modal .text {
+    padding: .75rem;
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+#modal button {
+    background: #fff;
+    border: none;
+    padding: 1.2rem 3rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: .3s all;
+}
+
+#modal button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+#modal.show {
+    display: flex !important;
+}
